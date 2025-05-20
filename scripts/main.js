@@ -95,8 +95,16 @@ console.log(chevalier1.getDamages(10));
 console.log(chevalier1.getDamages(10));
 console.log(chevalier1.resetMaxLife());
 
+function checkAvailableName(nameToCheck) {
+  newListToCheck = charactersList.map(element => element.name);
+  return newListToCheck.includes(nameToCheck);
+}
+
 function addCharacterToList() {
-  if (inputHeroName.value && inputHeroCategory.value && inputStrength.value && inputMagic.value) {
+  if (checkAvailableName(inputHeroName.value)) {
+      alert("Nom d'utilisateur indisponible");
+      
+  } else if (inputHeroName.value && inputHeroCategory.value && inputStrength.value && inputMagic.value) {
     charactersList.push(new Chevalier(inputHeroName.value, inputStrength.value, inputMagic.value, 100, 100, 40, 2, inputHeroCategory.value));
 
     // Ajout dans la liste des options
@@ -106,7 +114,9 @@ function addCharacterToList() {
 
     choicesHero.appendChild(option.cloneNode(true));
     choicesTarget.appendChild(option);
-  } else {
+  } 
+
+    else {
     alert("Veuillez remplir tous les champs")
   }
 
@@ -178,8 +188,12 @@ fightButton.addEventListener(`click`, (e) => {
 
   const selectedTargetName = choicesTarget.value;
   const selectedTarget = getCharacterByName(selectedTargetName);
-  
-    if (choicesAttacks.value === "sword-attack") {
+
+    if (choicesAttacks.value === "use-potion") {
+      selectedHero.usePotion();
+      displayActionMessages(selectedHero.usePotion());
+    }
+    else if (choicesAttacks.value === "sword-attack") {
     selectedHero.attack(selectedTarget);
     displayActionMessages(selectedHero.attack(selectedTarget));
 

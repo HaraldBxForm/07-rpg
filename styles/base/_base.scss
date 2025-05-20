@@ -105,16 +105,17 @@ form {
 .player-element {
     grid-column: span 12;
     display: flex;
+    background-color: rgba(0, 0, 0, 0.253);
     flex-direction: column;
     gap: 2rem;
     justify-content: space-between;
-    background-image: url("/img/Freebie-VintagePaperTextures-Preview-03.webp");
-    background-color: #e2b588;
+    // background-image: url("/img/Freebie-VintagePaperTextures-Preview-03.webp");
+    // background-color: #e2b588;
     border-radius: 3px;
-    padding: 0.5rem 2rem;
+    padding: 1rem 2rem;
     width: 100%;
+    border: 4px solid #3a6d2d;
     text-align: left;
-    border: none;
     font-size: 1rem;
 
     @media (min-width: 768px) {
@@ -133,10 +134,13 @@ form {
 
     div, .button {
         grid-column: span 12;
+        @media (min-width: 768px) {
+        grid-column: span 3;
 
-            @media (min-width: 768px) {
-            grid-column: span 3;
-    }
+        select {
+            text-align: left;
+        }
+}
 
     }
     .button {
