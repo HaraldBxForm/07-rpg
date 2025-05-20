@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
 
 body {
-    background-image: url("https://www.youtube.com/watch?v=ywH2C6KVFno");
+    height: 100vh;
+    background-image: url("/img/vecteezy_ai-generated-fantasy-landscape-with-a-medieval-castle-on-the_36195842.jpg");
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: white;
     font-family: "Macondo", cursive;
   font-weight: 400;
@@ -112,4 +115,35 @@ form {
   height: 100%;
   pointer-events: none;
   object-fit: cover;
+}
+
+
+// Display Players
+.players-container {
+    width: 100%;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.player-element {
+    grid-column: span 12;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: space-between;
+    background-image: url("/img/Freebie-VintagePaperTextures-Preview-03.webp");
+    background-color: #e2b588;
+    border-radius: 3px;
+    padding: 0.5rem 2rem;
+    width: 100%;
+    text-align: left;
+    border: none;
+    font-size: 1rem;
+
+    @media (min-width: 768px) {
+        grid-column: span 6; /* Two per row on medium screens */
+    }
+    
+
 }

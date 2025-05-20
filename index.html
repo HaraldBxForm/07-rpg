@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dépenses | Harald</title>
+    <title>RPG | Harald</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,13 +15,13 @@
 
 <body>
     <!-- Vidéo de fond -->
-       <div class="video-background">
+       <!-- <div class="video-background">
             <iframe src="https://www.youtube.com/embed/ywH2C6KVFno?autoplay=1&mute=1&loop=1&controls=0&playlist=ywH2C6KVFno"
                     frameborder="0"
                     allow="autoplay; fullscreen"
                     allowfullscreen>
             </iframe>
-        </div>
+        </div> -->
     <div class="main-wrapper">
         <h1>⚔️ RPG Chevalier ⚔️</h1>
 
@@ -31,13 +31,33 @@
 
             <h3>Catégorie</h3>
             <select name="" id="" class="hero-category">
-                <option value="chevalier">🗡️ Chevalier</option>
-                <option value="ensorceleu">🧙🏼‍♂️ Ensorceleur</option>
-                <option value="troll">🧌 Troll</option>
-                <option value="loup-garou">🐺 Loup Garou</option>
+                <option value="" selected disabled>Catégorie</option>
+                <option value="🗡️ Chevalier">🗡️ Chevalier</option>
+                <option value="🧙🏼‍♂️ Ensorceleur">🧙🏼‍♂️ Ensorceleur</option>
+                <option value="🧌 Troll">🧌 Troll</option>
+                <option value="🐺 Loup Garou">🐺 Loup Garou</option>
             </select>
 
             <button type="submit" class="add-button">Créer le personnage</button>
+        </form>
+
+        <form action="" class="heroes-fight">
+            <h3>Attaquant</h3>
+            <select name="" id="" class="hero-choices">
+                <option value="" selected disabled>Choisir un attaquant</option>
+            </select>
+
+            <h3>Ennemi</h3>
+            <select name="" id="" class="target-choices">
+                <option value="" selected disabled>Choisir un ennemi</option>
+            </select>
+
+            <h3>Attaque</h3>
+            <select name="" id="" class="attacks-choices">
+                <option value="" selected disabled>Selectionner une attaque</option>
+                <option value="sword-attack">🗡️ Épée</option>
+                <option value="magic-attack">✨ Sortilège</option>
+            </select>
         </form>
         <!-- Fenêtre Storytelling -->
         <div class="storytelling">
@@ -45,15 +65,7 @@
         </div>
         
         <div class="players-container">
-            <!-- Joueur 1 -->
-            <div class="player-1">
-
-            </div>
-
-            <!-- Joueur 2 -->
-            <div class="player-2">
-
-            </div>
+            
         </div>
     </div>
     
