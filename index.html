@@ -27,7 +27,7 @@
 
         <form action="" class="hero-creator">
             <h3>Nom du héro</h3>
-            <input type="text" class="hero-name">
+            <input type="text" class="hero-name" placeholder="Nom du héros">
 
             <h3>Catégorie</h3>
             <select name="" id="" class="hero-category">
@@ -37,30 +37,47 @@
                 <option value="🧌 Troll">🧌 Troll</option>
                 <option value="🐺 Loup Garou">🐺 Loup Garou</option>
             </select>
-
-            <button type="submit" class="add-button">Créer le personnage</button>
+            <div class="attack-magic-inputs">
+                <div>
+                    <h3>Force</h3>
+                    <input type="number" min="0" max="20" placeholder="Niveau de force" class="strength-input">
+                </div>
+                <div>
+                    <h3>Magie</h3>
+                    <input type="number" min="0" max="20" placeholder="Niveau de magie" class="magic-input">
+                </div>
+            </div>
+            <button type="submit" class="button add-button">Créer le personnage</button>
         </form>
 
         <form action="" class="heroes-fight">
-            <h3>Attaquant</h3>
-            <select name="" id="" class="hero-choices">
-                <option value="" selected disabled>Choisir un attaquant</option>
-            </select>
+            <div>
+                <h3>Attaquant</h3>
+                <select name="" id="" class="hero-choices">
+                    <option value="" selected disabled>Choisir un attaquant</option>
+                </select>
+            </div>
 
-            <h3>Ennemi</h3>
-            <select name="" id="" class="target-choices">
-                <option value="" selected disabled>Choisir un ennemi</option>
-            </select>
+            <div>
+                <h3>Ennemi</h3>
+                <select name="" id="" class="target-choices">
+                    <option value="" selected disabled>Choisir un ennemi</option>
+                </select>
+            </div>
 
-            <h3>Attaque</h3>
-            <select name="" id="" class="attacks-choices">
-                <option value="" selected disabled>Selectionner une attaque</option>
-                <option value="sword-attack">🗡️ Épée</option>
-                <option value="magic-attack">✨ Sortilège</option>
-            </select>
+            <div>
+                <h3>Attaque</h3>
+                <select name="" id="" class="attacks-choices">
+                    <option value="" selected disabled>Selectionner une attaque</option>
+                    <option value="sword-attack">🗡️ Épée</option>
+                    <option value="magic-attack">✨ Sortilège</option>
+                </select>
+            </div>
+
+            <button type="submit" class="button fight-button">Attaquer</button>
         </form>
         <!-- Fenêtre Storytelling -->
-        <div class="storytelling">
+        <div class="action-messages">
 
         </div>
         

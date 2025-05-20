@@ -6,13 +6,18 @@
 const inputHeroName = document.querySelector(`.hero-name`);
 const inputHeroCategory = document.querySelector(`.hero-category`);
 
+const inputStrength = document.querySelector(`.strength-input`);
+const inputMagic = document.querySelector(`.magic-input`);
+
 const choicesHero = document.querySelector(`.hero-choices`);
 const choicesTarget = document.querySelector(`.target-choices`);
-const choicesAttacks = document.querySelector(`.attack-choices`);
+const choicesAttacks = document.querySelector(`.attacks-choices`);
 // Button
-const addButton = document.querySelector(`.add-button`)
+const addButton = document.querySelector(`.add-button`);
+const fightButton = document.querySelector(`.fight-button`)
 // Display
 const displayPlayers = document.querySelector(`.players-container`);
+const displayMessages = document.querySelector(`.action-messages`);
 
 // ==============================
 // 🧠 Variables globales
@@ -91,14 +96,20 @@ console.log(chevalier1.getDamages(10));
 console.log(chevalier1.resetMaxLife());
 
 function addCharacterToList() {
-  charactersList.push(new Chevalier(inputHeroName.value, 50, 20, 100, 100, 40, 2, inputHeroCategory.value));
+  if (inputHeroName.value && inputHeroCategory.value && inputStrength.value && inputMagic.value) {
+    charactersList.push(new Chevalier(inputHeroName.value, inputStrength.value, inputMagic.value, 100, 100, 40, 2, inputHeroCategory.value));
 
-  const option = document.createElement(`option`);
-  option.id = option.value = inputHeroName.value;
-  option.textContent = `${inputHeroName.value} | ${inputHeroCategory.value} | ${charactersList[charactersList.length-1].life} ❤️ | ${charactersList[charactersList.length-1].strength} ⚔️`;
+    // Ajout dans la liste des options
+    const option = document.createElement(`option`);
+    option.id = option.value = inputHeroName.value;
+    option.textContent = `${inputHeroName.value} | ${inputHeroCategory.value} | ${charactersList[charactersList.length-1].life} ❤️ | ${charactersList[charactersList.length-1].strength} ⚔️`;
 
-  choicesHero.appendChild(option.cloneNode(true));
-  choicesTarget.appendChild(option);
+    choicesHero.appendChild(option.cloneNode(true));
+    choicesTarget.appendChild(option);
+  } else {
+    alert("Veuillez remplir tous les champs")
+  }
+
 }
 
 function displayCharactersBoxes() {
@@ -118,6 +129,32 @@ function displayCharactersBoxes() {
   });
 }
 
+// Retrouver le personnage dans la liste en fonction du nom
+function getCharacterByName(name) {
+  return charactersList.find(character => character.name === name);
+}
+
+// Display Message Box
+function displayActionMessages(text) {
+    displayMessages.innerHTML = `${text}`;
+    
+    // Délai pour faire disparaitre le text
+    setTimeout(() => {
+        displayMessages.innerHTML = ``;
+    }, 4000);
+}
+
+// Reset Fields
+function resetFields() {
+  inputHeroName.value = ``;
+  inputHeroCategory.value = ``;
+  inputStrength.value = ``;
+  inputMagic.value = ``;
+  choicesHero.value = ``;
+  choicesTarget.value = ``;
+  choicesAttacks.value = ``;
+}
+
 // function displayChoicesLists
 // ==============================
 // 🧲 Événements
@@ -127,6 +164,32 @@ addButton.addEventListener(`click`, (e) => {
   addCharacterToList()
   displayCharactersBoxes();
   // console.log(charactersList);
+  resetFields();
+})
+
+// Test
+
+fightButton.addEventListener(`click`, (e) => {
+  e.preventDefault();
   
+  // Selection Protocol
+  const selectedHeroName = choicesHero.value;
+  const selectedHero = getCharacterByName(selectedHeroName);
+
+  const selectedTargetName = choicesTarget.value;
+  const selectedTarget = getCharacterByName(selectedTargetName);
+  
+    if (choicesAttacks.value === "sword-attack") {
+    selectedHero.attack(selectedTarget);
+    displayActionMessages(selectedHero.attack(selectedTarget));
+
+  } else if (choicesAttacks.value === "magic-attack") {
+    selectedHero.magicAttack(selectedTarget);
+    console.log(selectedHero.magicAttack(selectedTarget));
+    
+  }
+  
+  resetFields();
+  displayCharactersBoxes();
 })
 
