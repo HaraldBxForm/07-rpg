@@ -103,7 +103,7 @@ function checkAvailableName(nameToCheck) {
 function addCharacterToList() {
   if (checkAvailableName(inputHeroName.value)) {
       alert("Nom d'utilisateur indisponible");
-      
+
   } else if (inputHeroName.value && inputHeroCategory.value && inputStrength.value && inputMagic.value) {
     charactersList.push(new Chevalier(inputHeroName.value, inputStrength.value, inputMagic.value, 100, 100, 40, 2, inputHeroCategory.value));
 
@@ -189,7 +189,10 @@ fightButton.addEventListener(`click`, (e) => {
   const selectedTargetName = choicesTarget.value;
   const selectedTarget = getCharacterByName(selectedTargetName);
 
-    if (choicesAttacks.value === "use-potion") {
+    if (selectedHero.isDead) {
+      displayActionMessages(`${selectedHero.name} est mort ! 💀`);
+    }
+    else if (choicesAttacks.value === "use-potion") {
       selectedHero.usePotion();
       displayActionMessages(selectedHero.usePotion());
     }
