@@ -189,20 +189,20 @@ fightButton.addEventListener(`click`, (e) => {
   const selectedTargetName = choicesTarget.value;
   const selectedTarget = getCharacterByName(selectedTargetName);
 
-    if (selectedHero.isDead) {
+    if (selectedHero.isDead()) {
       displayActionMessages(`${selectedHero.name} est mort ! 💀`);
     }
     else if (choicesAttacks.value === "use-potion") {
-      selectedHero.usePotion();
+      // selectedHero.usePotion();
       displayActionMessages(selectedHero.usePotion());
     }
     else if (choicesAttacks.value === "sword-attack") {
-    selectedHero.attack(selectedTarget);
+    // selectedHero.attack(selectedTarget);
     displayActionMessages(selectedHero.attack(selectedTarget));
 
   } else if (choicesAttacks.value === "magic-attack") {
-    selectedHero.magicAttack(selectedTarget);
-    console.log(selectedHero.magicAttack(selectedTarget));
+    // selectedHero.magicAttack(selectedTarget);
+    displayActionMessages(selectedHero.magicAttack(selectedTarget));
     
   }
   
